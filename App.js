@@ -93,8 +93,8 @@ function TeamScreen() {
               <Text style={styles.listText}>{item.name}</Text>
               <Image
                 style={{
-                  height: 100,
-                  width: 100,
+                  height: 150,
+                  width: 150,
                   resizeMode: 'center',
 
                   alignSelf: 'center',
@@ -109,14 +109,6 @@ function TeamScreen() {
     </View>
   );
 }
-
-// function TeamScreen() {
-//   return (
-//     <View style={styles.TeamScreen}>
-//       <Text>Team!</Text>
-//     </View>
-//   );
-// }
 
 function EventsScreen() {
   return (
@@ -236,8 +228,9 @@ const styles = StyleSheet.create({
     borderRadius: 12,
   },
   listText: {
-    fontSize: 17,
+    fontSize: 20,
     alignSelf: 'center',
     color: '#FFFFFF',
+    marginBottom: 10,
   },
 });
