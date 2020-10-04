@@ -7,7 +7,9 @@ import {
   FlatList,
   TouchableOpacity,
   Image,
+  TextInput,
 } from 'react-native';
+import {Linking} from 'react-native';
 import 'react-native-gesture-handler';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -20,14 +22,171 @@ function HomeScreen() {
     <View style={{flex: 1}}>
       <Header titleName="Home" />
       <View style={styles.HomeScreen}>
-        <Text
-          style={{
-            fontSize: 30,
-            fontFamily: 'NeueHaasDisplay-Roman',
-            color: 'white',
-          }}>
-          One Plus
-        </Text>
+        <View style={{flexDirection: 'row'}}>
+          <TouchableOpacity>
+            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+              <Image
+                style={{
+                  height: 20,
+                  width: 20,
+                  alignItems: 'center',
+                }}
+                source={require('./Models/Spotify.png')}
+              />
+              <Text
+                style={{
+                  color: 'white',
+                  fontSize: 15,
+                  fontFamily: 'NeueHaasDisplay-Roman',
+                  padding: 10,
+                }}
+                onPress={() =>
+                  Linking.openURL(
+                    'https://open.spotify.com/playlist/1SeGoo6wWZFg4Kbz27475X?si=AZ-cyEL8Reuy7UMGYrwipQ',
+                  )
+                }>
+                Sportify
+              </Text>
+            </View>
+            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+              <Image
+                style={{
+                  height: 20,
+                  width: 20,
+
+                  resizeMode: 'center',
+                  alignItems: 'center',
+                }}
+                source={require('./Models/instagram.png')}
+              />
+              <Text
+                style={{
+                  color: 'white',
+                  fontSize: 15,
+                  fontFamily: 'NeueHaasDisplay-Roman',
+                  padding: 10,
+                }}
+                onPress={() =>
+                  Linking.openURL(
+                    'https://www.instagram.com/oneplus_sap/?igshid=yeipvjydv0l7',
+                  )
+                }>
+                Instagram
+              </Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+        <View style={{flexDirection: 'row'}}>
+          <View
+            style={{
+              flex: 1,
+              alignItems: 'center',
+              justifyContent: 'center',
+              backgroundColor: '#121212',
+              flexDirection: 'row',
+            }}>
+            <TouchableOpacity
+              style={styles.listview1}
+              onPress={() => {
+                //  navigation.navigate('GalleryScreen');
+              }}>
+              <View style={{flexDirection: 'column'}}>
+                <Text style={styles.listText1}>Gallery</Text>
+                <Image
+                  style={{
+                    height: 60,
+                    width: 60,
+                    resizeMode: 'contain',
+                    margin: 20,
+                    alignSelf: 'center',
+                    marginBottom: -10,
+                  }}
+                  source={require('./Models/gallery1.png')}
+                />
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.listview1}
+              onPress={() => {
+                //  navigation.navigate('TeamScreen');
+              }}>
+              <View
+                style={{
+                  flexDirection: 'column',
+                  borderColor: '#F50514',
+                }}>
+                <Text style={styles.listText1}>Team</Text>
+                <Image
+                  style={{
+                    height: 60,
+                    width: 60,
+                    resizeMode: 'contain',
+                    margin: 20,
+                    alignSelf: 'center',
+                    marginBottom: -10,
+                  }}
+                  source={require('./Models/team1.png')}
+                />
+              </View>
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        <View style={{flexDirection: 'row'}}>
+          <View
+            style={{
+              flex: 1,
+              alignItems: 'center',
+              justifyContent: 'center',
+              backgroundColor: '#121212',
+              flexDirection: 'row',
+            }}>
+            <TouchableOpacity
+              style={styles.listview1}
+              onPress={() => {
+                // navigation.navigate('EventsScreen');
+              }}>
+              <View style={{flexDirection: 'column'}}>
+                <Text style={styles.listText1}>Events</Text>
+                <Image
+                  style={{
+                    height: 60,
+                    width: 60,
+                    resizeMode: 'contain',
+                    margin: 20,
+                    alignSelf: 'center',
+                    marginBottom: -10,
+                  }}
+                  source={require('./Models/event1.png')}
+                />
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.listview1}
+              onPress={() => {
+                // navigation.navigate('CollaborateScreen');
+              }}>
+              <View
+                style={{
+                  flexDirection: 'column',
+                  borderColor: '#F50514',
+                }}>
+                <Text style={styles.listText1}>Collab</Text>
+                <Image
+                  style={{
+                    height: 60,
+                    width: 60,
+                    resizeMode: 'contain',
+                    margin: 20,
+                    alignSelf: 'center',
+                    marginBottom: -10,
+                  }}
+                  source={require('./Models/collab1.png')}
+                />
+              </View>
+            </TouchableOpacity>
+          </View>
+        </View>
       </View>
     </View>
   );
@@ -46,7 +205,7 @@ function GalleryScreen() {
             fontFamily: 'NeueHaasDisplay-Roman',
             color: 'white',
           }}>
-          Gallery
+          ! Reload to access Gallery !
         </Text>
       </View>
     </View>
@@ -177,7 +336,7 @@ function EventsScreen() {
             />
           </View>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.EventScreenButtons}>
+        <TouchableOpacity style={styles.EventScreenButtons} onPress>
           <View style={{flexDirection: 'row'}}>
             <Text style={styles.EventText}> On-Going Events </Text>
             <Image
@@ -216,6 +375,21 @@ function EventsScreen() {
   );
 }
 
+//
+//
+//
+//
+//
+//
+//collaboration
+//
+//
+//
+//
+//
+//
+//
+
 function CollaborateScreen() {
   return (
     <View style={{flex: 1}}>
@@ -223,12 +397,76 @@ function CollaborateScreen() {
       <View style={styles.CollaborateScreen}>
         <Text
           style={{
-            fontSize: 30,
+            fontSize: 15,
             fontFamily: 'NeueHaasDisplay-Roman',
             color: 'white',
           }}>
-          Collaboration!
+          Your Name
         </Text>
+        <TextInput
+          style={{
+            color: 'white',
+            borderColor: 'white',
+            borderWidth: 1,
+            borderRadius: 10,
+            width: 300,
+            margin: 20,
+          }}
+          underlineColorAndroid="transparent"
+        />
+        <Text
+          style={{
+            fontSize: 15,
+            fontFamily: 'NeueHaasDisplay-Roman',
+            color: 'white',
+          }}>
+          Event
+        </Text>
+        <TextInput
+          style={{
+            color: 'white',
+            borderColor: 'white',
+            borderWidth: 1,
+            borderRadius: 10,
+            width: 300,
+            margin: 20,
+          }}
+          underlineColorAndroid="transparent"
+        />
+        <Text
+          style={{
+            fontSize: 15,
+            fontFamily: 'NeueHaasDisplay-Roman',
+            color: 'white',
+          }}>
+          Why should we collaborate with you?
+        </Text>
+        <TextInput
+          style={{
+            color: 'white',
+            borderColor: 'white',
+            borderWidth: 1,
+            borderRadius: 10,
+            width: 300,
+            maxHeight: 60,
+            margin: 20,
+          }}
+          underlineColorAndroid="transparent"
+        />
+        <TouchableOpacity
+          style={{
+            backgroundColor: 'white',
+            borderRadius: 10,
+            borderColor: 'white',
+            borderWidth: 2,
+            padding: 10,
+          }}
+          //onPress={() => Alert.alert('ThankYou')}
+        >
+          <Text style={{color: 'black', fontSize: 25, fontStyle: 'normal'}}>
+            Submit
+          </Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -386,5 +624,22 @@ const styles = StyleSheet.create({
     color: 'white',
     alignSelf: 'center',
     fontSize: 16,
+  },
+  listview1: {
+    marginHorizontal: 20,
+    marginVertical: 13,
+    alignItems: 'center',
+    padding: 20,
+    backgroundColor: '#242424',
+    color: '#FFFFFF',
+    borderRadius: 12,
+    borderColor: '#F50514',
+    borderWidth: 0.5,
+  },
+
+  listText1: {
+    fontSize: 17,
+    alignSelf: 'center',
+    color: '#FFFFFF',
   },
 });
