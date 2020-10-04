@@ -38,7 +38,7 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -53,5 +53,46 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>AntDesign.ttf</string>
+		<string>Entypo.ttf</string>
+		<string>EvilIcons.ttf</string>
+		<string>Feather.ttf</string>
+		<string>FontAwesome.ttf</string>
+		<string>FontAwesome5_Brands.ttf</string>
+		<string>FontAwesome5_Regular.ttf</string>
+		<string>FontAwesome5_Solid.ttf</string>
+		<string>Fontisto.ttf</string>
+		<string>Foundation.ttf</string>
+		<string>Ionicons.ttf</string>
+		<string>MaterialCommunityIcons.ttf</string>
+		<string>MaterialIcons.ttf</string>
+		<string>Octicons.ttf</string>
+		<string>SimpleLineIcons.ttf</string>
+		<string>Zocial.ttf</string>
+		<string>BebasNeue-Regular.ttf</string>
+		<string>NeueHaasDisplay-Black.woff</string>
+		<string>NeueHaasDisplay-BlackItalic.woff</string>
+		<string>NeueHaasDisplay-Bold.woff</string>
+		<string>NeueHaasDisplay-BoldItalic.woff</string>
+		<string>NeueHaasDisplay-Light.woff</string>
+		<string>NeueHaasDisplay-LightItalic.woff</string>
+		<string>NeueHaasDisplay-Mediu.woff</string>
+		<string>NeueHaasDisplay-MediumItalic.woff</string>
+		<string>NeueHaasDisplay-Roman.woff</string>
+		<string>NeueHaasDisplay-RomanItalic.woff</string>
+		<string>NeueHaasDisplay-Thin.woff</string>
+		<string>NeueHaasDisplay-ThinItalic.woff</string>
+		<string>NeueHaasDisplay-XThin.woff</string>
+		<string>NeueHaasDisplay-XThinItalic.woff</string>
+		<string>NeueHaasDisplay-XXThin.woff</string>
+		<string>NeueHaasDisplay-XXThinItalic.woff</string>
+		<string>NeueHaasDisplay-Black.ttf</string>
+		<string>NeueHaasDisplay-Mediu.ttf</string>
+		<string>NeueHaasDisplay-Light.ttf</string>
+		<string>NeueHaasDisplay-Roman.ttf</string>
+		<string>NeueHaasDisplay-Thin.ttf</string>
+	</array>
 </dict>
 </plist>

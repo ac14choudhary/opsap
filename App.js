@@ -6,7 +6,6 @@ import {
   StyleSheet,
   FlatList,
   TouchableOpacity,
-  StatusBar,
   Image,
 } from 'react-native';
 import 'react-native-gesture-handler';
@@ -17,7 +16,9 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 function HomeScreen() {
   return (
     <View style={styles.HomeScreen}>
-      <Text>Home!</Text>
+      <Text style={{fontSize: 30, fontFamily: 'NeueHaasDisplay-Roman'}}>
+        One Plus
+      </Text>
     </View>
   );
 }
@@ -93,9 +94,12 @@ function TeamScreen() {
               <Text style={styles.listText}>{item.name}</Text>
               <Image
                 style={{
-                  height: 150,
-                  width: 150,
+                  borderRadius: 30,
+                  height: 200,
+                  width: 200,
+
                   resizeMode: 'center',
+                  borderColor: '#F50514',
 
                   alignSelf: 'center',
                   alignItems: 'center',
@@ -219,18 +223,17 @@ const styles = StyleSheet.create({
   EventsScreen: {flex: 1, justifyContent: 'center', alignItems: 'center'},
   CollaborateScreen: {flex: 1, justifyContent: 'center', alignItems: 'center'},
   TeamCard: {
-    marginHorizontal: 20,
-    marginVertical: 10,
     alignItems: 'center',
-    padding: 40,
-    backgroundColor: '#666666',
+    padding: 30,
+    backgroundColor: 'white',
     color: '#868686',
     borderRadius: 12,
   },
   listText: {
     fontSize: 20,
     alignSelf: 'center',
-    color: '#FFFFFF',
+    color: '#F50514',
     marginBottom: 10,
+    fontFamily: 'NeueHaasDisplay-Mediu',
   },
 });
