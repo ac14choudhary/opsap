@@ -11,25 +11,49 @@ import {
 import 'react-native-gesture-handler';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-//import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Header from './components/Header';
+
+//HOMESCREEN//
 
 function HomeScreen() {
   return (
-    <View style={styles.HomeScreen}>
-      <Text style={{fontSize: 30, fontFamily: 'NeueHaasDisplay-Roman'}}>
-        One Plus
-      </Text>
+    <View style={{flex: 1}}>
+      <Header titleName="Home" />
+      <View style={styles.HomeScreen}>
+        <Text
+          style={{
+            fontSize: 30,
+            fontFamily: 'NeueHaasDisplay-Roman',
+            color: 'white',
+          }}>
+          One Plus
+        </Text>
+      </View>
     </View>
   );
 }
 
+//Gallery//
+
 function GalleryScreen() {
   return (
-    <View style={styles.GalleryScreen}>
-      <Text>Gallery!</Text>
+    <View style={{flex: 1}}>
+      <Header titleName="Gallery" />
+      <View style={styles.HomeScreen}>
+        <Text
+          style={{
+            fontSize: 30,
+            fontFamily: 'NeueHaasDisplay-Roman',
+            color: 'white',
+          }}>
+          Gallery
+        </Text>
+      </View>
     </View>
   );
 }
+
+//TEAMSCREEN//
 
 function TeamScreen() {
   const [Tdata, setTData] = useState([
@@ -78,63 +102,151 @@ function TeamScreen() {
     console.log(id);
   };
   return (
-    <View
-      style={{
-        backgroundColor: '#ffffff',
-        paddingVertical: 10,
-      }}>
-      <FlatList
-        keyExtractor={(item) => item.id}
-        data={Tdata}
-        renderItem={({item}) => (
-          <TouchableOpacity
-            style={styles.TeamCard}
-            onPress={() => pressIHandler(item.id)}>
-            <View style={{flexDirection: 'column'}}>
-              <Text style={styles.listText}>{item.name}</Text>
-              <Image
-                style={{
-                  borderRadius: 30,
-                  height: 200,
-                  width: 200,
+    <View style={{flex: 1, paddingBottom: 50}}>
+      <Header titleName="Team" />
+      <View
+        style={{
+          backgroundColor: '#121212',
+          paddingVertical: 10,
+        }}>
+        <FlatList
+          keyExtractor={(item) => item.id}
+          data={Tdata}
+          renderItem={({item}) => (
+            <TouchableOpacity
+              style={styles.TeamCard}
+              onPress={() => pressIHandler(item.id)}>
+              <View style={{flexDirection: 'column'}}>
+                <Text style={styles.listText}>{item.name}</Text>
+                <Image
+                  style={{
+                    borderRadius: 30,
+                    height: 200,
+                    width: 200,
 
-                  resizeMode: 'center',
-                  borderColor: '#F50514',
+                    resizeMode: 'center',
+                    borderColor: '#F50514',
 
-                  alignSelf: 'center',
-                  alignItems: 'center',
-                }}
-                source={item.image}
-              />
-            </View>
-          </TouchableOpacity>
-        )}
-      />
+                    alignSelf: 'center',
+                    alignItems: 'center',
+                  }}
+                  source={item.image}
+                />
+                <View
+                  style={{
+                    padding: 15,
+                    width: '95%',
+                    alignSelf: 'center',
+                    borderBottomColor: '#2F2F2F',
+                    borderColor: '#121212',
+                    borderWidth: 1,
+                  }}
+                />
+              </View>
+            </TouchableOpacity>
+          )}
+        />
+      </View>
     </View>
   );
 }
+
+//EVENTS SCREEN//
 
 function EventsScreen() {
   return (
-    <View style={styles.EventsScreen}>
-      <Text>Events!</Text>
+    <View style={{flex: 1}}>
+      <Header titleName="Events" />
+      <View style={styles.EventsScreen}>
+        <TouchableOpacity style={styles.EventScreenButtons}>
+          <View style={{flexDirection: 'row'}}>
+            <Text style={styles.EventText}> Upcoming Events </Text>
+            <Image
+              style={{
+                borderRadius: 30,
+                height: 80,
+                width: 80,
+
+                resizeMode: 'center',
+                borderColor: '#F50514',
+
+                resizeMode: 'contain',
+                marginLeft: 40,
+              }}
+              source={require('./Models/comingsoon.png')}
+            />
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.EventScreenButtons}>
+          <View style={{flexDirection: 'row'}}>
+            <Text style={styles.EventText}> On-Going Events </Text>
+            <Image
+              style={{
+                borderRadius: 30,
+                height: 100,
+                width: 100,
+                resizeMode: 'center',
+                borderColor: '#F50514',
+                resizeMode: 'contain',
+                marginLeft: 40,
+              }}
+              source={require('./Models/OnEvents.png')}
+            />
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.EventScreenButtons}>
+          <View style={{flexDirection: 'row'}}>
+            <Text style={styles.EventText}> Past Events </Text>
+            <Image
+              style={{
+                borderRadius: 30,
+                height: 80,
+                width: 80,
+                borderColor: '#F50514',
+
+                resizeMode: 'contain',
+                marginLeft: 80,
+              }}
+              source={require('./Models/PastEvents.png')}
+            />
+          </View>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
+
 function CollaborateScreen() {
   return (
-    <View style={styles.CollaborateScreen}>
-      <Text>Collaboration!</Text>
+    <View style={{flex: 1}}>
+      <Header titleName="Collaborations" />
+      <View style={styles.CollaborateScreen}>
+        <Text
+          style={{
+            fontSize: 30,
+            fontFamily: 'NeueHaasDisplay-Roman',
+            color: 'white',
+          }}>
+          Collaboration!
+        </Text>
+      </View>
     </View>
   );
 }
 
-const Tab = createBottomTabNavigator();
+//NAVIGATION//
 
-export default function App() {
+const Tab = createBottomTabNavigator();
+export default function MyTabs() {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
+      <Tab.Navigator
+        initialRouteName="Feed"
+        tabBarOptions={{
+          activeTintColor: '#F50514',
+          inactiveBackgroundColor: '#242424',
+          activeBackgroundColor: '#242424',
+        }}>
         <Tab.Screen
           name="Home"
           component={HomeScreen}
@@ -216,17 +328,41 @@ export default function App() {
   );
 }
 
+//STYLES//
+
 const styles = StyleSheet.create({
-  HomeScreen: {flex: 1, justifyContent: 'center', alignItems: 'center'},
-  GalleryScreen: {flex: 1, justifyContent: 'center', alignItems: 'center'},
-  TeamScreen: {flex: 1, justifyContent: 'center', alignItems: 'center'},
-  EventsScreen: {flex: 1, justifyContent: 'center', alignItems: 'center'},
-  CollaborateScreen: {flex: 1, justifyContent: 'center', alignItems: 'center'},
-  TeamCard: {
+  HomeScreen: {
+    flex: 1,
+    justifyContent: 'center',
     alignItems: 'center',
-    padding: 30,
-    backgroundColor: 'white',
-    color: '#868686',
+    backgroundColor: '#121212',
+  },
+  GalleryScreen: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#121212',
+  },
+  TeamScreen: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#121212',
+  },
+  EventsScreen: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#121212',
+  },
+  CollaborateScreen: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: '#121212',
+    alignItems: 'center',
+  },
+  TeamCard: {
+    padding: 10,
     borderRadius: 12,
   },
   listText: {
@@ -235,5 +371,20 @@ const styles = StyleSheet.create({
     color: '#F50514',
     marginBottom: 10,
     fontFamily: 'NeueHaasDisplay-Mediu',
+  },
+  EventScreenButtons: {
+    borderRadius: 10,
+    opacity: 10,
+    padding: 20,
+    margin: 10,
+    backgroundColor: '#242424',
+    width: 290,
+    height: 125,
+  },
+  EventText: {
+    fontFamily: 'NeueHaasDisplay-Roman',
+    color: 'white',
+    alignSelf: 'center',
+    fontSize: 16,
   },
 });
